@@ -1,7 +1,7 @@
 import './NavBar.css'
 //import { FaShoppingCart } from 'react-icons/fa'
 import { FaApple } from 'react-icons/fa6'
-import { CiShoppingCart } from "react-icons/ci";
+import CartWidget from '../CartWidget/CartWidget'
 
 const Navbar = () => {
   return (
@@ -28,7 +28,7 @@ const Navbar = () => {
             </ul>
           </div>
           <div className='cart-icon'>
-            <CiShoppingCart className='text-3xl' />
+            <CartWidget />
           </div>
         </nav>
       </header>

@@ -1,11 +1,9 @@
 
 
-const ItemListContainer = () => {
+const ItemListContainer = ({title}) => {
   return (
-    <div clasName="container">
-      <div className="flex text-center">
-        <h1 className="text-3xl">Mi Tienda!</h1>
-      </div>
+    <div className="flex justify-center items-center h-screen">
+        <h2 className="text-3xl">{title}</h2>
     </div>
   )
 }
