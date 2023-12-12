@@ -41,7 +41,7 @@ const ItemListContainer = ({ title }) => {
   return (
     <div className="itemListContainer">
         <div className="flex items-center justify-center">
-          <span className='text-primary font-[600] text-2xl mr-2 my-5'>Bienvenidos a</span>
+          <span className='text-primary font-[600] text-2xl mr-2 my-5'>Bienvenidos a </span>
             <FaApple />
               <span className='text-primary font-[600] text-2xl'>{title}</span>
         </div>
