@@ -1,0 +1,18 @@
+.item-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 940px;
+    margin-top: 68px;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-row-gap: 40px;
+    grid-column-gap: 34px;
+  }
+  
+  .item-card {
+    margin: 10px;
+  }
+  

@@ -1,0 +1,35 @@
+/* Item.css */
+.item {
+    width: 400px;
+    max-width: 500px; /* Puedes ajustar este valor según tus necesidades */
+  }
+  
+  .card {
+    padding-bottom: 35px;
+    border-bottom: 1px solid #d2d2d7;
+    margin-bottom: 0;
+  }
+  
+  .card-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .card-content {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .card-title {
+    font-size: 24px;
+    text-align: center;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .card-btn{
+    color: #06c;
+    letter-spacing: inherit;
+    text-align: center;
+  }
