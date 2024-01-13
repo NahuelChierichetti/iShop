@@ -1,13 +1,21 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import ItemCount from '../ItemCount/ItemCount'
 import { Link } from 'react-router-dom'
 import './ItemDetail.css'
+import CartContext from '../../context/CartContext'
 
 const ItemDetail = ({ categoria, imagen, nombre, stock, precio, id }) => {
     const [quantity, setQuantity] = useState(0)
+    const { addItem } = useContext(CartContext)
 
     const onAdd = (quantity) => {
         setQuantity(quantity)
+        const newProduct = {
+          id, nombre, precio
+        }
+        addItem(newProduct, quantity)
+
+        console.log(`Agregaste ${quantity} productos`)
     }
   return (
     <div className='flex flex-col w-[50vw] mx-auto text-center my-14'>

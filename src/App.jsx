@@ -5,21 +5,24 @@ import Cart from './components/Cart/Cart'
 import PageError from './components/Error/PageError'
 import NavBar from './components/NavBar/NavBar'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { CartContextProvider } from './context/CartContext';
 
 function App() {
 
   return (
     <>
-      <BrowserRouter>
-        <NavBar />
-        <Routes>
-          <Route path='/' element={<ItemListContainer title='iShop'/>}/>
-          <Route path={'/product/:itemId'} element={<ItemDetailContainer/>} />
-          <Route path={'/category/:categoryId'} element={<ItemListContainer title='iShop'/>} />
-          <Route path={'/cart'} element={<Cart />} />
-          <Route path={'*'} element={<PageError />} />
-        </Routes>
-      </BrowserRouter>
+      <CartContextProvider>
+        <BrowserRouter>
+            <NavBar />
+            <Routes>
+              <Route path='/' element={<ItemListContainer title='iShop'/>}/>
+              <Route path={'/product/:itemId'} element={<ItemDetailContainer/>} />
+              <Route path={'/category/:categoryId'} element={<ItemListContainer title='iShop'/>} />
+              <Route path={'/cart'} element={<Cart />} />
+              <Route path={'*'} element={<PageError />} />
+            </Routes>
+          </BrowserRouter>
+      </CartContextProvider>
     </>
   )
 }
