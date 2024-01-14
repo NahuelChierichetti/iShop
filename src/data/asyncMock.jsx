@@ -14,7 +14,7 @@ const productos = [
         "nombre": "Apple iPhone 15 Pro Max",
         "categoria": "iPhone",
         "descripcion": "La última innovación de Apple redefine la experiencia móvil con características revolucionarias. Disfruta de un rendimiento sin igual, una cámara aún más avanzada y una pantalla espectacular. El iPhone 15 lleva la tecnología a nuevos límites, ofreciendo una experiencia única para usuarios exigentes.",
-        "color": ["Silver", "Rose Gold", "Space Gray", "Black"],
+        "color": ["Silver", "Rose Gold", "Blue", "Black"],
         "memoria": ["256GB", "512GB", "1TB"],
         "stock": 10,
         "imagen": Iphone15,

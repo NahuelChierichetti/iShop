@@ -32,7 +32,7 @@ const ItemDetail = ({ categoria, imagen, nombre, stock, precio, id, descripcion,
     </div>*/
     <div className='flex mx-auto my-14'>
       <div className="w-[50vw]">
-        <img src={imagen} alt={nombre} className='h-[400px] w-[400px] mx-auto' />
+        <img src={imagen} alt={nombre} className='h-[500px] w-[400px] mx-auto imgDetail' />
       </div>
       <div className="w-[50vw] container-detail">
         <h4 className='card-title'>{nombre}</h4>
@@ -40,11 +40,14 @@ const ItemDetail = ({ categoria, imagen, nombre, stock, precio, id, descripcion,
         <p className='card-descripcion'>{descripcion}</p>
         <div className='card-colores'>
           {color && color.map((colorOption, index) => (
-              <button key={index} className='color-option' id={colorOption.trim()}>
+              <button key={index} className='color-option' id={colorOption.trim().replace(/\s+/g, '')}>
                   {colorOption}
               </button>
           ))}
-      </div>
+        </div>
+        {quantity > 0 ? <Link to={'/cart'} className='cart-btn'>Ir al carrito</Link> :
+          <ItemCount initialValue={1} stock={stock} onAdd={onAdd}/>
+        }
       </div>
     </div>
   )
