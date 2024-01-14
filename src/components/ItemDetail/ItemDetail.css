@@ -23,14 +23,17 @@
     padding: 6px 20px;
     border-radius: 30px;
   }
+  .container-cart-btn {
+      margin-top: 50px;
+  }
   a.cart-btn {
-    margin-top: 20px;
-    background: #fff;
-    margin: auto;
-    margin-top: 20px;
     color: #000;
-    padding: 10px 30px;
+    letter-spacing: inherit;
+    text-align: center;
+    background: #fff;
+    padding: 15px 50px;
     border: 1px solid #000;
+    border-radius: 10px;
 }
 
 a.cart-btn:hover{
@@ -57,6 +60,17 @@ p.card-descripcion {
 .card-colores{
   margin: 20px 0;
   display: flex;
+}
+
+.container-img {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 10rem;
+}
+
+.color-option.selected {
+  border: 2px solid #06c;
+  opacity: .9;
 }
 
 button#Silver {
@@ -98,6 +112,36 @@ button#Black {
   font-size: 0px;
   margin-right: 10px;
   box-shadow: 0px 0px 12px 0px #fff;
+}
+button#Gold {
+  background: #d7be69;
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  color: #d7be69;
+  font-size: 0px;
+  margin-right: 10px;
+  box-shadow: 0px 0px 12px 0px #fff;
+}
+button#SpaceGray {
+  background: #717378;
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  color: #717378;
+  font-size: 0px;
+  margin-right: 10px;
+  box-shadow: 0px 0px 12px 0px #fff;
+}
+button#White {
+  background: #fff;
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  color: #fff;
+  font-size: 0px;
+  margin-right: 10px;
+  border: 1px solid #dadada;
 }
 .imgDetail {
   object-fit: cover;

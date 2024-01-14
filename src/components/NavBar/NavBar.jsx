@@ -26,7 +26,9 @@ const Navbar = () => {
             </ul>
           </div>
           <div className='cart-icon'>
-            <CartWidget />
+            <Link to={'/cart'}>
+              <CartWidget />
+            </Link>
           </div>
         </nav>
       </header>

@@ -40,20 +40,22 @@ const ItemListContainer = ({ title }) => {
 
   return (
     <div className="itemListContainer">
-        <div className="flex items-center justify-center">
-          <span className='text-primary font-[600] text-2xl mr-2 my-5'>Bienvenidos a </span>
+      {loading ? (
+        <div>
+          <div className="flex items-center justify-center">
+            <span className='text-primary font-[600] text-2xl mr-2 my-5'>Bienvenidos a </span>
             <FaApple />
-              <span className='text-primary font-[600] text-2xl'>{title}</span>
-        </div>
-        {loading ? (
+            <span className='text-primary font-[600] text-2xl'>{title}</span>
+          </div>
           <div className="mx-auto text-center mt-4">
             <div className="border-t-4 border-black-700 border-solid h-8 w-8 animate-spin mx-auto my-12"></div>
           </div>
-        ) : (
-          <ItemList data={data} />
-        )}
+        </div>
+      ) : (
+        <ItemList data={data} />
+      )}
     </div>
-  )
+  );
 }
 
 export default ItemListContainer
