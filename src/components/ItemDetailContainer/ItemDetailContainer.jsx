@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { getProductById } from "../../data/asyncMock"
 import ItemDetail from "../ItemDetail/ItemDetail"
+import { doc, getDoc } from 'firebase/firestore'
+import { db } from '../../main'
 
 const ItemDetailContainer = () => {
     const [ product, setProduct ] = useState({})
@@ -9,12 +10,23 @@ const ItemDetailContainer = () => {
 
 
     useEffect (() => {
-        getProductById(itemId)
-            .then((prod) => {
-              setProduct(prod)  
-            })
+        const getProduct = async() => {
+          const queryRef = doc(db, 'productos', itemId)
+          
+          const response = await getDoc(queryRef)
+          
+          const newProduct = {
+            ...response.data(),
+            id: response.id
+          }
+
+          setTimeout(() => {
+            setProduct(newProduct)
+          }, 500)
+        }
+        getProduct()
     }, [itemId])
-    console.log(product)
+    
   return (
     <div>
         <ItemDetail {...product} />

@@ -21,11 +21,9 @@ const Cart = () => {
     <div className="container mx-auto my-14">
       <div className="relative overflow-x-auto">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
-                    <th scope="col" className="px-6 py-3">
-                        
-                    </th>
+                    <th scope="col" className="px-6 py-3"></th>
                     <th scope="col" className="px-6 py-3">
                         Producto
                     </th>
@@ -41,24 +39,22 @@ const Cart = () => {
                     <th scope="col" className="px-6 py-3">
                         Subtotal
                     </th>
-                    <th scope="col" className="px-6 py-3">
-                        
-                    </th>
+                    <th scope="col" className="px-6 py-3"></th>
                 </tr>
             </thead>
             {
               cart.map((prod) => (
                 <tbody key={prod.id}>
                   <tr className="bg-white border-b dark:bg-gray-400 dark:border-gray-700">
-                      <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                      <td scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                           <img src={prod.imagen} alt={prod.nombre} className="imgCart"></img>
-                      </th>
-                      <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                      </td>
+                      <td scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                           {prod.nombre}
-                      </th>
-                      <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                      </td>
+                      <td scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                           {prod.color}
-                      </th>
+                      </td>
                       <td className="px-6 py-4">
                           {prod.quantity}
                       </td>
@@ -76,19 +72,19 @@ const Cart = () => {
               ))
             }
             <tfoot>
-            <tr>
-              <td className="px-6 py-4" colSpan="3">
-                <button onClick={() => clearCart()}>Vaciar carrito</button>
+            <tr className="bg-gray-100">
+              <td className="px-6 py-4" colSpan="4">
+                <button onClick={() => clearCart()} className="bg-[#eee] px-6 py-3 rounded-md text-gray-700 font-medium">Vaciar carrito</button>
               </td>
-              <td className="px-6 py-4" colSpan="3">
-                <strong>Total:</strong>
-              </td>
-              <td className="px-6 py-4">
-                <strong>USD$ {getTotal()}</strong>
+              <td className="px-6 py-4 text-right" colSpan="3">
+                <strong>Total: USD$ {getTotal()}</strong>
               </td>
             </tr>
           </tfoot>
         </table>
+        <div className="flex justify-end mt-2">
+          <Link to={'/checkout'} className="px-8 py-4 mt-5 bg-[black] px-6 py-3 rounded-md text-white font-medium border-[1px] border-[black] hover:bg-white hover:text-black">Finalizar la compra</Link>
+        </div>
     </div>
     </div>
     

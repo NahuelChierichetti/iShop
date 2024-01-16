@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react"
-import { getProductByCategory, getProducts } from "../../data/asyncMock"
 import ItemList from "../ItemList/ItemList"
 import { useParams } from "react-router-dom"
 import './ItemListContainer.css'
 import { FaApple } from 'react-icons/fa6'
+import { collection, where, query, getDocs } from "firebase/firestore"
+import { db } from '../../main'
 
 const ItemListContainer = ({ title }) => {
 
@@ -14,28 +15,26 @@ const ItemListContainer = ({ title }) => {
   useEffect(() => {
 
     setLoading(true)
+    const getData = async () => {
 
-    if(categoryId) {
-      getProductByCategory(categoryId)
-        .then((prod) => {
-          setData(prod);
-          setLoading(false);
-        })
-        .catch((err) => {
-          console.log(err);
-          setLoading(false);
-        });
-    } else {
-      getProducts()
-        .then((prod) => {
-          setData(prod);
-          setLoading(false);
-        })
-        .catch((err) => {
-          console.log(err);
-          setLoading(false);
-        });
+      const queryRef = !categoryId ? collection(db, 'productos') :
+      query(collection(db, 'productos'), where('categoria', '==', categoryId))
+
+      const response = await getDocs(queryRef)
+
+      const products = response.docs.map((doc) => {
+        const newProduct = {
+          ...doc.data(),
+          id: doc.id
+        }
+        return newProduct
+      })
+      setTimeout(() => {
+        setData(products)
+        setLoading(false)
+      }, 1000)
     }
+    getData()
   }, [categoryId])
 
   return (
@@ -43,7 +42,6 @@ const ItemListContainer = ({ title }) => {
       {loading ? (
         <div>
           <div className="flex items-center justify-center">
-            <span className='text-primary font-[600] text-2xl mr-2 my-5'>Bienvenidos a </span>
             <FaApple />
             <span className='text-primary font-[600] text-2xl'>{title}</span>
           </div>
