@@ -76,7 +76,6 @@ const Checkout = () => {
           addDoc(ordersCollection, order)
             .then(({ id }) => {
                 clearCart()
-                console.log(`Orden de compra generada correctamente con el N° ${id}`);
                 Swal.fire({
                     title: '¡Recibimos tu compra!',
                     text: `Código de seguimiento: ${id}`,

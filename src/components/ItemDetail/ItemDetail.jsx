@@ -32,13 +32,10 @@ const ItemDetail = ({ categoria, imagen, nombre, stock, precio, id, descripcion,
                 id, nombre, precio, imagen, color: selectedColor
             }
             addItem(newProduct, quantity)
-    
-            console.log(`Agregaste ${quantity} productos`)
         } 
     }
 
     const handleColorClick = (selectedColor) => {
-        console.log(selectedColor)
         setSelectedColor(selectedColor)
     };
 
